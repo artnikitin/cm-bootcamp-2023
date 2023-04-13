@@ -1,23 +1,17 @@
 artifacts:
   model/data:
-    hash: 8851747223f460a765657054c359e357
-    size: 4069880
-    uri: model/model
-  postprocess/data.pkl:
-    hash: 261a109a39851d53f4027ff61b2e8d15
-    size: 360
-    uri: model/postprocess
+    hash: 1434419cc79c9bb13cd5a5589a24b3f0
+    size: 22419032
+    uri: model_layers/model
   preprocess/data.pkl:
-    hash: c84718b7f380ba9fad915cbdf29c4863
+    hash: 83fb5c634ec2cd5cdbf3aebb8e40e959
     size: 371
-    uri: model/preprocess
+    uri: model_layers/preprocess
 call_orders:
   __call__:
   - - preprocess
     - __call__
   - - model
-    - __call__
-  - - postprocess
     - __call__
 object_type: model
 processors:
@@ -40,33 +34,12 @@ processors:
           dtype: float32
           shape:
           - null
-          - 224
-          - 224
+          - 256
+          - 256
           - 3
           type: ndarray
         varkw: kwargs
     type: tf_keras
-  postprocess:
-    io:
-      type: pickle
-    methods:
-      __call__:
-        args:
-        - name: x
-          type_:
-            dtype: float32
-            shape:
-            - null
-            - 1
-            type: tf_tensor
-        name: __call__
-        returns:
-          item_types:
-            price:
-              dtype: float32
-              type: number
-          type: dict
-    type: callable
   preprocess:
     io:
       type: pickle
@@ -86,15 +59,15 @@ processors:
           dtype: float32
           shape:
           - null
-          - 224
-          - 224
+          - 256
+          - 256
           - 3
           type: ndarray
     type: callable
 requirements:
 - module: numpy
   version: 1.21.6
-- module: tensorflow
-  version: 2.11.0
 - module: keras
+  version: 2.11.0
+- module: tensorflow
   version: 2.11.0

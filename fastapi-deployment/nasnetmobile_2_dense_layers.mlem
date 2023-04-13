@@ -3,6 +3,10 @@ artifacts:
     hash: 1434419cc79c9bb13cd5a5589a24b3f0
     size: 22419032
     uri: models/nasnetmobile_2_dense_layers/model
+  postprocess/data.pkl:
+    hash: 261a109a39851d53f4027ff61b2e8d15
+    size: 360
+    uri: models/nasnetmobile_2_dense_layers/postprocess
   preprocess/data.pkl:
     hash: 83fb5c634ec2cd5cdbf3aebb8e40e959
     size: 371
@@ -12,6 +16,8 @@ call_orders:
   - - preprocess
     - __call__
   - - model
+    - __call__
+  - - postprocess
     - __call__
 object_type: model
 processors:
@@ -40,6 +46,27 @@ processors:
           type: ndarray
         varkw: kwargs
     type: tf_keras
+  postprocess:
+    io:
+      type: pickle
+    methods:
+      __call__:
+        args:
+        - name: x
+          type_:
+            dtype: float32
+            shape:
+            - null
+            - 1
+            type: tf_tensor
+        name: __call__
+        returns:
+          item_types:
+            price:
+              dtype: float32
+              type: number
+          type: dict
+    type: callable
   preprocess:
     io:
       type: pickle

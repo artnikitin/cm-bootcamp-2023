@@ -12,7 +12,7 @@
 
 ```
 cd fastapi-deployement
-mlem build docker_dir -m nasnetmobile_2_dense_layers --target dockerdir --server fastapi --server.request_serializer pil_numpy --file_conf server=server.mlem
+poetry run mlem build docker_dir -m nasnetmobile_2_dense_layers --target dockerdir --server fastapi --server.request_serializer pil_numpy --file_conf server=server.mlem
 cd dockerdir
 flyctl launch --auto-confirm --region lax --no-deploy --name art-expert-collmach
 flyctl deploy # подождать пока все развернется

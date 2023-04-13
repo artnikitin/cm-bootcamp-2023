@@ -1,0 +1,1 @@
+mlem serve -l server.yaml -m model

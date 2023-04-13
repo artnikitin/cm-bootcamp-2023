@@ -1,0 +1,9 @@
+app_name: art-expert-collmach
+object_type: deployment
+org: ARTNIKITIN
+scale_memory: 2048
+server:
+  request_serializer:
+    type: pil_numpy
+  type: fastapi
+type: flyio

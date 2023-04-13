@@ -1,12 +1,12 @@
 artifacts:
   model/data:
-    hash: 1434419cc79c9bb13cd5a5589a24b3f0
-    size: 22419032
-    uri: nasnetmobile_2_dense_layers/model
+    hash: c17e02508329aea3dcdbec0e3e89c0e2
+    size: 7622696
+    uri: models/colmach_baseline/model
   preprocess/data.pkl:
-    hash: 83fb5c634ec2cd5cdbf3aebb8e40e959
+    hash: d0804884fb73ba83c90424c2df748475
     size: 371
-    uri: nasnetmobile_2_dense_layers/preprocess
+    uri: models/colmach_baseline/preprocess
 call_orders:
   __call__:
   - - preprocess
@@ -67,7 +67,7 @@ processors:
 requirements:
 - module: numpy
   version: 1.21.6
-- module: keras
-  version: 2.11.0
 - module: tensorflow
+  version: 2.11.0
+- module: keras
   version: 2.11.0

@@ -1,12 +1,12 @@
 artifacts:
   model/data:
-    hash: c17e02508329aea3dcdbec0e3e89c0e2
-    size: 7622696
-    uri: price_keras_preprocess/model
+    hash: 1434419cc79c9bb13cd5a5589a24b3f0
+    size: 22419032
+    uri: models/nasnetmobile_2_dense_layers/model
   preprocess/data.pkl:
-    hash: d0804884fb73ba83c90424c2df748475
+    hash: 83fb5c634ec2cd5cdbf3aebb8e40e959
     size: 371
-    uri: price_keras_preprocess/preprocess
+    uri: models/nasnetmobile_2_dense_layers/preprocess
 call_orders:
   __call__:
   - - preprocess
@@ -67,7 +67,7 @@ processors:
 requirements:
 - module: numpy
   version: 1.21.6
-- module: tensorflow
-  version: 2.11.0
 - module: keras
+  version: 2.11.0
+- module: tensorflow
   version: 2.11.0

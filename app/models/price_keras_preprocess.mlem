@@ -1,0 +1,73 @@
+artifacts:
+  model/data:
+    hash: c17e02508329aea3dcdbec0e3e89c0e2
+    size: 7622696
+    uri: price_keras_preprocess/model
+  preprocess/data.pkl:
+    hash: d0804884fb73ba83c90424c2df748475
+    size: 371
+    uri: price_keras_preprocess/preprocess
+call_orders:
+  __call__:
+  - - preprocess
+    - __call__
+  - - model
+    - __call__
+object_type: model
+processors:
+  model:
+    io:
+      save_format: h5
+      type: tf_keras
+    methods:
+      __call__:
+        args: []
+        name: __call__
+        returns:
+          dtype: float32
+          shape:
+          - null
+          - 1
+          type: tf_tensor
+        varargs: args
+        varargs_type:
+          dtype: float32
+          shape:
+          - null
+          - 256
+          - 256
+          - 3
+          type: ndarray
+        varkw: kwargs
+    type: tf_keras
+  preprocess:
+    io:
+      type: pickle
+    methods:
+      __call__:
+        args:
+        - name: x
+          type_:
+            dtype: float32
+            shape:
+            - null
+            - 653
+            - 4
+            type: ndarray
+        name: __call__
+        returns:
+          dtype: float32
+          shape:
+          - null
+          - 256
+          - 256
+          - 3
+          type: ndarray
+    type: callable
+requirements:
+- module: numpy
+  version: 1.21.6
+- module: tensorflow
+  version: 2.11.0
+- module: keras
+  version: 2.11.0

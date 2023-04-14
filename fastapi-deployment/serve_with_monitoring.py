@@ -4,7 +4,7 @@ from mlem.contrib.prometheus import PrometheusFastAPIMiddleware
 
 
 def main():
-    model = load_meta("price")
+    model = load_meta("nasnetmobile_2_dense_layers")
 
     api_middleware = PrometheusFastAPIMiddleware(
         metrics=[

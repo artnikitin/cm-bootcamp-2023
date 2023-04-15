@@ -29,7 +29,7 @@ def http_requested_languages_total() -> Callable[[Info], None]:
 instrumentator = Instrumentator()
 instrumentator.add(http_requested_languages_total())
 
-model = load_meta("nasnetmobile_2_dense_layers")
+model = load_meta("nasnetmobile_2_layers_exc")
 
 server = FastAPIServer(
     standardize=True,

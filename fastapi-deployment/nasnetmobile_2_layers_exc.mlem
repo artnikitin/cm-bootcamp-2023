@@ -1,0 +1,100 @@
+artifacts:
+  model/data:
+    hash: b01be85bbf4a4103a0e7aafb173e693e
+    size: 22420088
+    uri: models/nasnet_2_layers_exc/model
+  postprocess/data.pkl:
+    hash: bc3c2291e66385d8665069e4b0a7a6e2
+    size: 372
+    uri: models/nasnet_2_layers_exc/postprocess
+  preprocess/data.pkl:
+    hash: c0b0d6060b005e1c9a55507307820dc2
+    size: 374
+    uri: models/nasnet_2_layers_exc/preprocess
+call_orders:
+  __call__:
+  - - preprocess
+    - __call__
+  - - model
+    - __call__
+  - - postprocess
+    - __call__
+object_type: model
+processors:
+  model:
+    io:
+      save_format: h5
+      type: tf_keras
+    methods:
+      __call__:
+        args: []
+        name: __call__
+        returns:
+          dtype: float32
+          shape:
+          - null
+          - 1
+          type: tf_tensor
+        varargs: args
+        varargs_type:
+          dtype: float32
+          shape:
+          - null
+          - 200
+          - 200
+          - 3
+          type: ndarray
+        varkw: kwargs
+    type: tf_keras
+  postprocess:
+    io:
+      type: pickle
+    methods:
+      __call__:
+        args:
+        - name: x
+          type_:
+            dtype: float32
+            shape:
+            - null
+            - 1
+            type: tf_tensor
+        name: __call__
+        returns:
+          item_types:
+            price:
+              ptype: float
+              type: primitive
+          type: dict
+    type: callable
+  preprocess:
+    io:
+      type: pickle
+    methods:
+      __call__:
+        args:
+        - name: x
+          type_:
+            dtype: float32
+            shape:
+            - null
+            - 653
+            - 4
+            type: ndarray
+        name: __call__
+        returns:
+          dtype: float32
+          shape:
+          - null
+          - 200
+          - 200
+          - 3
+          type: ndarray
+    type: callable
+requirements:
+- module: numpy
+  version: 1.21.6
+- module: keras
+  version: 2.11.0
+- module: tensorflow
+  version: 2.11.0

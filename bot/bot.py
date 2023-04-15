@@ -77,7 +77,7 @@ async def painter(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         )
         sleep(2)
     await update.message.reply_text(
-            f"Начинаем аукцион! Стартовая цена $25. Можно ставить любую сумму, главное, чтобы это было целое число. У тебя одна попытка. Итак, твоя ставка?"
+            f"Начинаем аукцион! Стартовая цена $25. Можно ставить любую сумму, главное, чтобы это было целое число. Итак, твоя ставка?"
     )
     return FIRST_BID
 
@@ -187,7 +187,9 @@ async def last_bid(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
             "Ставка должна быть больше. Изначальной или предыдушей ставки. Попробуй еще раз."
         )
             return LAST_BID
-    
+    sleep(1)
+    await update.message.reply_text("Илон Маск в шоке!")
+    sleep(1)
     await update.message.reply_text("${} раз!".format(last_bid_amount))
     sleep(2)
     await update.message.reply_text("${} два!".format(last_bid_amount))
@@ -263,7 +265,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     user = update.message.from_user
     logger.info("User %s canceled the conversation.", user.first_name)
     await update.message.reply_text(
-        "Bye! I hope we can talk again some day.", reply_markup=ReplyKeyboardRemove()
+        "Аукцион завершен!", reply_markup=ReplyKeyboardRemove()
     )
 
     return ConversationHandler.END

@@ -14,7 +14,7 @@
 cd fastapi-deployement
 poetry run mlem build docker_dir -m nasnetmobile_2_dense_layers --target dockerdir --server fastapi --server.request_serializer pil_numpy --file_conf server=server.mlem
 cd dockerdir
-flyctl launch --auto-confirm --region lax --no-deploy --name art-expert-collmach
+flyctl launch --auto-confirm --region ams --no-deploy --name art-expert-collmach
 flyctl deploy # подождать пока все развернется
 flyctl scale memory 2048 # после того как запустилось выполнить эту команду (не всегда нужно, но иногда без нее не работает)
 ```

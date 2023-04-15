@@ -1,16 +1,16 @@
 artifacts:
   model/data:
-    hash: 1434419cc79c9bb13cd5a5589a24b3f0
-    size: 22419032
-    uri: model_layers/model
+    hash: b01be85bbf4a4103a0e7aafb173e693e
+    size: 22420088
+    uri: modelc/model
   postprocess/data.pkl:
-    hash: 261a109a39851d53f4027ff61b2e8d15
-    size: 360
-    uri: model_layers/postprocess
+    hash: bc3c2291e66385d8665069e4b0a7a6e2
+    size: 372
+    uri: modelc/postprocess
   preprocess/data.pkl:
-    hash: 83fb5c634ec2cd5cdbf3aebb8e40e959
-    size: 371
-    uri: model_layers/preprocess
+    hash: c0b0d6060b005e1c9a55507307820dc2
+    size: 374
+    uri: modelc/preprocess
 call_orders:
   __call__:
   - - preprocess
@@ -40,8 +40,8 @@ processors:
           dtype: float32
           shape:
           - null
-          - 256
-          - 256
+          - 200
+          - 200
           - 3
           type: ndarray
         varkw: kwargs
@@ -63,8 +63,8 @@ processors:
         returns:
           item_types:
             price:
-              dtype: float32
-              type: number
+              ptype: float
+              type: primitive
           type: dict
     type: callable
   preprocess:
@@ -86,8 +86,8 @@ processors:
           dtype: float32
           shape:
           - null
-          - 256
-          - 256
+          - 200
+          - 200
           - 3
           type: ndarray
     type: callable
